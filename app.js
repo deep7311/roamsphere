@@ -33,8 +33,13 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public"))); // to use static files
 
 //Basic api routes for the application.
+// app.get("/", (req, res) => {
+//   res.send("Hi, I am root");
+// });
+
+//Home Route
 app.get("/", (req, res) => {
-  res.send("Hi, I am root");
+  res.render("listings/home.ejs");
 });
 
 // making function for Joi to make it as an middleware for schema validation
@@ -54,10 +59,16 @@ app.get("/listings", wrapAsync(async (req, res) => {
   res.render("listings/index.ejs", { allListings });
 }));
 
-//New Route
+// New Route
 app.get("/listings/new", (req, res) => {
   res.render("listings/new.ejs");
 });
+
+//Login Route
+app.get("/listings/login", (req, res) => {
+  res.render("listings/login.ejs");
+});
+
 
 //Show route -- to get particular details of a single item
 app.get("/listings/:id", wrapAsync(async (req, res) => {
