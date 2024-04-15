@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, "/public"))); // to use static files
 
 //Home Route
 app.get("/", (req, res) => {
-  res.render("listings/home.ejs");
+  res.render("listings/index.ejs");
 });
 
 // making function for Joi to make it as an middleware for schema validation
